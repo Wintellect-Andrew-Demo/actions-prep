@@ -18,8 +18,10 @@ name: Continuous Integration
 on:
   push:
     branches-ignore:
-      - 'master'
       - 'main'
+      
+  workflow_dispatch:
+    
 
 ###############
 # Set the Job #
