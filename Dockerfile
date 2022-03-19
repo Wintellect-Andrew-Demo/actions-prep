@@ -10,8 +10,8 @@ FROM myoung34/github-runner:latest
 #########################################
 # Variables #
 #########################################
-ARG orgname="gh-mentor"
-ARG reponame="actions-practice"
+ARG orgname="Wintellect-Andrew-Demo"
+ARG reponame="actions-prep"
 
 #########################################
 # Label the instance and set maintainer #
