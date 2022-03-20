@@ -60,7 +60,7 @@ jobs:
             BUILD_DATE=${{ env.BUILD_DATE }}
             BUILD_REVISION=${{ github.sha }}
             BUILD_VERSION=${{ github.sha }}
-          push: false
+          push: true
 
       - name: Dump steps context
         run: echo "CI Complete!"
