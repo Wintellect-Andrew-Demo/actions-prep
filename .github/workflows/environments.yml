@@ -17,12 +17,18 @@ on:
   workflow_dispatch:
   
 jobs:
+
   deployment:
     runs-on: ubuntu-latest
     environment: 
       name: development
       url: https://github.com
+      
     steps:
+    
+    - name: Checkout Code
+      uses: actions/checkout@v2
+      
     - name: List files in the repository
       run: |
             ls ${{ github.workspace }}
@@ -31,5 +37,6 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
+      
     - name: Show status
       run: echo "🍏 This job's status is ${{ job.status }}."
