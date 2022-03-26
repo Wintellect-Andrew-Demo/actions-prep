@@ -1,6 +1,14 @@
 # Add an environment: https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment
 
-name: production deployment
+# Debugging
+# Sometimes it can be useful to see extra debug output from your workflows. To do this you can set the debug secret in the repository.
+
+# Open Repository Settings
+# Open Secrets
+# Add a new secret with the name ACTIONS_RUNNER_DEBUG and the value true
+# Notice that new workflows now have extra debug output
+
+name: sample environment
 
 on:
   push:
@@ -11,8 +19,11 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     environment: 
-      name: production
+      name: development
       url: https://github.com
     steps:
-      - name: deploy
-        # ...deployment-specific steps
+    - name: List files in the repository
+      run: |
+            ls ${{ github.workspace }}
+    - name: Show status
+      run: echo "🍏 This job's status is ${{ job.status }}."
