@@ -1,10 +1,16 @@
 name: Greet Everyone
-# This workflow is triggered on pushes to the repository.
+# This workflow is triggered manually.
 on: 
-    push:
-      branches:
-        - main
     workflow_dispatch:
+     inputs:
+       runner:
+         description: 'host'     
+         required: true
+         default: 'windows-latest' 
+         type: choice
+         options:
+          - windows-latest
+          - self-hosted
 
 jobs:
   greet-users:
