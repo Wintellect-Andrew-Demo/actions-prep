@@ -2,26 +2,15 @@ name: Greet Everyone
 # This workflow is triggered manually.
 on: 
   workflow_dispatch:
-    inputs:
-       runner:
-         description: 'host'     
-         required: true
-         default: 'windows-latest' 
-         type: choice
-         options:
-          - windows-latest
-          - self-hosted
-env:
-  HOST: ${{ github.event.inputs.logLevel }}
+
 
 jobs:
   greet-users:
     # Job name is Greeting
     name: Greeting
+
     # This job runs on Linux
-    runs-on: $HOST
-    # This job runs on Linux
-    # runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       # This step uses GitHub's hello-world-javascript-action: https://github.com/actions/hello-world-javascript-action
       - name: Hello world
