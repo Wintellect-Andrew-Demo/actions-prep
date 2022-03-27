@@ -1,8 +1,8 @@
 name: Greet Everyone
 # This workflow is triggered manually.
 on: 
-    workflow_dispatch:
-     inputs:
+  workflow_dispatch:
+    inputs:
        runner:
          description: 'host'     
          required: true
@@ -11,13 +11,15 @@ on:
          options:
           - windows-latest
           - self-hosted
+env:
+  HOST: ${{ github.event.inputs.logLevel }}
 
 jobs:
   greet-users:
     # Job name is Greeting
     name: Greeting
     # This job runs on Linux
-    runs-on: self-hosted
+    runs-on: $HOST
     # This job runs on Linux
     # runs-on: ubuntu-latest
     steps:
